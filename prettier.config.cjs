@@ -1,9 +1,6 @@
 /** @type {import('prettier').Config} */
 const config = {
-  plugins: [
-    'prettier-plugin-packagejson',
-    'prettier-plugin-organize-imports',
-  ],
+  plugins: ['prettier-plugin-packagejson', 'prettier-plugin-organize-imports'],
   arrowParens: 'always',
   bracketSpacing: true,
   printWidth: 80,
@@ -15,5 +12,4 @@ const config = {
   proseWrap: 'always',
 };
 
-export default config;
-
+module.exports = config;
