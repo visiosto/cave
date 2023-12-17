@@ -1,0 +1,46 @@
+name: Main workflow
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    if:
+      "!contains(github.event.head_commit.message, '[ci skip]') &&
+      !startsWith(github.event.head_commit.message, 'docs')"
+    strategy:
+      matrix:
+        node: ['18', '20']
+
+  check:
+    name: Check
+    runs-on: ubuntu-latest
+    if:
+      "!contains(github.event.head_commit.message, '[ci skip]') &&
+      !startsWith(github.event.head_commit.message, 'docs')"
+    strategy:
+      matrix:
+        node: ['18', '20']
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4.1.1
+
+      - name: Set up Node.js environment
+        uses: actions/setup-node@v4.0.0
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint the workspaces
+        run: npm run lint
+
+      - name: Check the formatting
+        run: npm run format:test
