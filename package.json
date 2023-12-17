@@ -1,0 +1,22 @@
+{
+  "name": "@visiosto/cave",
+  "version": "0.1.0",
+  "description": "Visiosto's internal OpenGraph image generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/visiosto/cave.git"
+  },
+  "author": "Visiosto oy <visiosto@visiosto.fi>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/visiosto/cave/issues"
+  },
+  "homepage": "https://github.com/visiosto/cave#readme",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
