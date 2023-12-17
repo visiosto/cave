@@ -2,6 +2,7 @@
   "name": "@visiosto/cave",
   "version": "0.1.0",
   "description": "Visiosto's internal OpenGraph image generator",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
